@@ -1,3 +1,4 @@
+import { useIntl } from 'react-intl'
 import { cx } from 'styled-system/css'
 import { GithubIcon } from '../icons/GithubIcon'
 import { LinkedinIcon } from '../icons/LinkedinIcon'
@@ -9,10 +10,11 @@ type HeaderProps = {
 }
 
 export const Header = ({ isDark, onToggleTheme }: HeaderProps) => {
+  const intl = useIntl()
   return (
     <header className={headerCss}>
       <div className={headerLeftCss}>
-        <nav className={navCss} aria-label="Social links">
+        <nav className={navCss} aria-label={intl.formatMessage({ id: 'header.nav.ariaLabel' })}>
           <a
             href="https://github.com/albertinad"
             target="_blank"
@@ -35,7 +37,9 @@ export const Header = ({ isDark, onToggleTheme }: HeaderProps) => {
         <button
           className={cx(toggleCss, isDark ? 'dark-on' : '')}
           onClick={onToggleTheme}
-          aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          aria-label={isDark
+            ? intl.formatMessage({ id: 'header.theme.switchToLight' })
+            : intl.formatMessage({ id: 'header.theme.switchToDark' })}
         />
       </div>
     </header>

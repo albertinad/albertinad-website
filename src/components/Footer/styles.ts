@@ -1,7 +1,10 @@
 import { css } from 'styled-system/css'
 
 export const footerCss = css({
-  padding: { base: '24px 28px', sm: '28px 60px' },
+  paddingTop: { base: '24px', sm: '28px' },
+  paddingBottom: { base: '24px', sm: '28px' },
+  paddingLeft: { base: '24px', sm: '64px' },
+  paddingRight: { base: '24px', sm: '64px' },
   borderTop: '1px solid var(--border)',
   opacity: '0',
   animation: 'fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.9s forwards',
