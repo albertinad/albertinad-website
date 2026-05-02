@@ -1,4 +1,4 @@
-import { defineConfig } from '@pandacss/dev'
+import { defineConfig } from '@pandacss/dev';
 
 export default defineConfig({
   preflight: false,
@@ -35,4 +35,4 @@ export default defineConfig({
       },
     },
   },
-})
+});

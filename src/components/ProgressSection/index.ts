@@ -1,1 +1,1 @@
-export { ProgressSection } from './ProgressSection'
+export { ProgressSection } from './ProgressSection';

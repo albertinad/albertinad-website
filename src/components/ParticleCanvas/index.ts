@@ -1,1 +1,1 @@
-export { ParticleCanvas } from './ParticleCanvas'
+export { ParticleCanvas } from './ParticleCanvas';
