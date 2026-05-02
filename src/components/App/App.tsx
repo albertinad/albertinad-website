@@ -1,23 +1,23 @@
-import { IntlProvider } from 'react-intl'
-import messages from '@/i18n/en.json'
-import { useTheme } from '@/hooks/useTheme'
-import { ParticleCanvas } from '@/components/ParticleCanvas'
-import { Header } from '@/components/Header'
-import { Hero } from '@/components/Hero'
-import { AboutSection } from '@/components/AboutSection'
-import { ProgressSection } from '@/components/ProgressSection'
-import { Footer } from '@/components/Footer'
-import { pageCss, mainCss } from './styles'
+import { IntlProvider } from 'react-intl';
+import messages from '@/i18n/en.json';
+import { useTheme } from '@/hooks/useTheme';
+import { ParticleCanvas } from '@/components/ParticleCanvas';
+import { Header } from '@/components/Header';
+import { Hero } from '@/components/Hero';
+import { AboutSection } from '@/components/AboutSection';
+import { ProgressSection } from '@/components/ProgressSection';
+import { Footer } from '@/components/Footer';
+import { pageCss, mainCss } from './styles';
 
 const PARTICLE_CONFIG = {
   accentColor: '#22c55e',
   density: 70,
   speed: 0.35,
   connDist: 130,
-} as const
+} as const;
 
 export const App = () => {
-  const { theme, toggleTheme, isDark } = useTheme()
+  const { theme, toggleTheme, isDark } = useTheme();
 
   return (
     <IntlProvider locale="en" messages={messages}>
@@ -34,5 +34,5 @@ export const App = () => {
         </div>
       </>
     </IntlProvider>
-  )
-}
+  );
+};

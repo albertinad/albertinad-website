@@ -1,9 +1,9 @@
-import { useIntl } from 'react-intl'
-import { SectionHeader } from '../SectionHeader'
-import { sectionCss, bodyCss, textCss } from './styles'
+import { useIntl } from 'react-intl';
+import { SectionHeader } from '../SectionHeader';
+import { sectionCss, bodyCss, textCss } from './styles';
 
 export const AboutSection = () => {
-  const intl = useIntl()
+  const intl = useIntl();
   return (
     <section className={sectionCss}>
       <SectionHeader title={intl.formatMessage({ id: 'about.section.title' })} />
@@ -16,5 +16,5 @@ export const AboutSection = () => {
         </p>
       </div>
     </section>
-  )
-}
+  );
+};

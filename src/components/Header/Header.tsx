@@ -1,16 +1,16 @@
-import { useIntl } from 'react-intl'
-import { cx } from 'styled-system/css'
-import { GithubIcon } from '../icons/GithubIcon'
-import { LinkedinIcon } from '../icons/LinkedinIcon'
-import { headerCss, headerLeftCss, navCss, socialLinkCss, toggleCss } from './styles'
+import { useIntl } from 'react-intl';
+import { cx } from 'styled-system/css';
+import { GithubIcon } from '../icons/GithubIcon';
+import { LinkedinIcon } from '../icons/LinkedinIcon';
+import { headerCss, headerLeftCss, navCss, socialLinkCss, toggleCss } from './styles';
 
 type HeaderProps = {
-  isDark: boolean
-  onToggleTheme: () => void
-}
+  isDark: boolean;
+  onToggleTheme: () => void;
+};
 
 export const Header = ({ isDark, onToggleTheme }: HeaderProps) => {
-  const intl = useIntl()
+  const intl = useIntl();
   return (
     <header className={headerCss}>
       <div className={headerLeftCss}>
@@ -37,11 +37,13 @@ export const Header = ({ isDark, onToggleTheme }: HeaderProps) => {
         <button
           className={cx(toggleCss, isDark ? 'dark-on' : '')}
           onClick={onToggleTheme}
-          aria-label={isDark
-            ? intl.formatMessage({ id: 'header.theme.switchToLight' })
-            : intl.formatMessage({ id: 'header.theme.switchToDark' })}
+          aria-label={
+            isDark
+              ? intl.formatMessage({ id: 'header.theme.switchToLight' })
+              : intl.formatMessage({ id: 'header.theme.switchToDark' })
+          }
         />
       </div>
     </header>
-  )
-}
+  );
+};

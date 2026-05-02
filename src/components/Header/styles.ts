@@ -1,4 +1,4 @@
-import { css } from 'styled-system/css'
+import { css } from 'styled-system/css';
 
 export const headerCss = css({
   display: 'flex',
@@ -10,18 +10,18 @@ export const headerCss = css({
   paddingRight: { base: '24px', sm: '64px' },
   opacity: '0',
   animation: 'fadeDown 0.8s cubic-bezier(0.22,1,0.36,1) 0.2s forwards',
-})
+});
 
 export const headerLeftCss = css({
   display: 'flex',
   alignItems: 'center',
   gap: '32px',
-})
+});
 
 export const navCss = css({
   display: 'flex',
   gap: '24px',
-})
+});
 
 export const socialLinkCss = css({
   display: 'flex',
@@ -57,7 +57,7 @@ export const socialLinkCss = css({
   '&:hover::after': {
     width: '100%',
   },
-})
+});
 
 export const toggleCss = css({
   appearance: 'none',
@@ -85,4 +85,4 @@ export const toggleCss = css({
     transform: 'translateX(16px)',
     background: 'var(--accent)',
   },
-})
+});

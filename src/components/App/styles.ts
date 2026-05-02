@@ -1,4 +1,4 @@
-import { css } from 'styled-system/css'
+import { css } from 'styled-system/css';
 
 export const pageCss = css({
   position: 'relative',
@@ -6,7 +6,7 @@ export const pageCss = css({
   minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
-})
+});
 
 export const mainCss = css({
   flex: '1',
@@ -17,4 +17,4 @@ export const mainCss = css({
   display: 'flex',
   flexDirection: 'column',
   gap: { base: '48px', sm: '64px' },
-})
+});
