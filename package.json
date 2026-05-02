@@ -9,11 +9,15 @@
     "preview": "vite preview",
     "prepare": "panda codegen --silent && panda cssgen",
     "lint": "eslint src",
-    "test": "NODE_OPTIONS='--experimental-vm-modules --experimental-strip-types' jest"
+    "test": "NODE_OPTIONS='--experimental-vm-modules --experimental-strip-types' jest",
+    "test:coverage": "NODE_OPTIONS='--experimental-vm-modules --experimental-strip-types' jest --coverage",
+    "clean:build": "rm -rf dist coverage",
+    "clean": "npm run clean:build && rm -rf node_modules"
   },
   "dependencies": {
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-intl": "^10.1.4"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -1,3 +1,5 @@
+import { IntlProvider } from 'react-intl'
+import messages from '@/i18n/en.json'
 import { useTheme } from '@/hooks/useTheme'
 import { ParticleCanvas } from '@/components/ParticleCanvas'
 import { Header } from '@/components/Header'
@@ -18,17 +20,19 @@ export const App = () => {
   const { theme, toggleTheme, isDark } = useTheme()
 
   return (
-    <>
-      <ParticleCanvas {...PARTICLE_CONFIG} theme={theme} />
-      <div className={pageCss}>
-        <Header isDark={isDark} onToggleTheme={toggleTheme} />
-        <main className={mainCss}>
-          <Hero />
-          <AboutSection />
-          <ProgressSection />
-        </main>
-        <Footer />
-      </div>
-    </>
+    <IntlProvider locale="en" messages={messages}>
+      <>
+        <ParticleCanvas {...PARTICLE_CONFIG} theme={theme} />
+        <div className={pageCss}>
+          <Header isDark={isDark} onToggleTheme={toggleTheme} />
+          <main className={mainCss}>
+            <Hero />
+            <AboutSection />
+            <ProgressSection />
+          </main>
+          <Footer />
+        </div>
+      </>
+    </IntlProvider>
   )
 }

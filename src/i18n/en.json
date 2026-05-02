@@ -1,0 +1,12 @@
+{
+  "hero.name.first": "Albertina",
+  "hero.name.last": "Durante",
+  "about.section.title": "About Me",
+  "about.body.p1": "My name is Albertina Durante, a Staff Software Engineer with an MSc-equivalent in Information Systems Engineering. Over the past decade, I've worked across backend, frontend, and full-stack roles, from big tech companies to startups, including time as a founding engineer, delivering solutions in taxes, e-commerce, fitness, developer tools, and consumer applications.",
+  "about.body.p2": "My passion is designing and building reliable, scalable, and performant systems that contribute to delivering real value to users. I also love mentoring engineers and helping them grow into the next stage of their careers.",
+  "footer.copyright": "© 2026 Albertina Durante. All rights reserved.",
+  "header.nav.ariaLabel": "Social links",
+  "header.theme.switchToDark": "Switch to dark mode",
+  "header.theme.switchToLight": "Switch to light mode",
+  "progress.label": "something is being built"
+}

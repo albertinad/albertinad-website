@@ -1,22 +1,18 @@
+import { useIntl } from 'react-intl'
 import { SectionHeader } from '../SectionHeader'
 import { sectionCss, bodyCss, textCss } from './styles'
 
 export const AboutSection = () => {
+  const intl = useIntl()
   return (
     <section className={sectionCss}>
-      <SectionHeader title="About Me" />
+      <SectionHeader title={intl.formatMessage({ id: 'about.section.title' })} />
       <div className={bodyCss}>
         <p className={textCss}>
-          My name is Albertina Durante, a Senior Staff Software Engineer with an MSc-equivalent in
-          Information Systems Engineering. Over the past decade, I've worked across backend,
-          frontend, and full-stack roles, from big tech companies to startups, including time as a
-          founding engineer, delivering solutions in taxes, e-commerce, fitness, developer tools,
-          and consumer applications.
+          {intl.formatMessage({ id: 'about.body.p1' })}
           <br />
           <br />
-          My passion is designing and building reliable, scalable, and performant systems that
-          contribute to delivering real value to users. I also love mentoring engineers and helping
-          them grow into the next stage of their careers.
+          {intl.formatMessage({ id: 'about.body.p2' })}
         </p>
       </div>
     </section>
