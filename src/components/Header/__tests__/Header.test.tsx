@@ -35,12 +35,18 @@ describe('Header', () => {
 
   it('renders the GitHub link', () => {
     const { getByText } = renderHeader(false);
-    expect(getByText('GitHub').closest('a')).toHaveAttribute('href', expect.stringMatching(/^https?:\/\//));
+    expect(getByText('GitHub').closest('a')).toHaveAttribute(
+      'href',
+      expect.stringMatching(/^https?:\/\//),
+    );
   });
 
   it('renders the LinkedIn link', () => {
     const { getByText } = renderHeader(false);
-    expect(getByText('LinkedIn').closest('a')).toHaveAttribute('href', expect.stringMatching(/^https?:\/\//));
+    expect(getByText('LinkedIn').closest('a')).toHaveAttribute(
+      'href',
+      expect.stringMatching(/^https?:\/\//),
+    );
   });
 
   it('nav has correct aria-label', () => {
