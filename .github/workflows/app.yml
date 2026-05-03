@@ -38,3 +38,17 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  purge-cache:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Purge Cloudflare cache by prefix
+        run: |
+          curl -s -X POST \
+            "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"prefixes":["albertinad.com","albertinad.com/"]}' \
+            | tee response.json
+          jq -e '.success == true' response.json
