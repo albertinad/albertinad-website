@@ -33,22 +33,14 @@ describe('Header', () => {
     expect(onToggleTheme).toHaveBeenCalledTimes(1);
   });
 
-  // TODO: update this to just check a valid link exists, not the exact link
   it('renders the GitHub link', () => {
     const { getByText } = renderHeader(false);
-    expect(getByText('GitHub').closest('a')).toHaveAttribute(
-      'href',
-      'https://github.com/albertinad',
-    );
+    expect(getByText('GitHub').closest('a')).toHaveAttribute('href', expect.stringMatching(/^https?:\/\//));
   });
 
-  // TODO: update this to just check a valid link exists, not the exact link
   it('renders the LinkedIn link', () => {
     const { getByText } = renderHeader(false);
-    expect(getByText('LinkedIn').closest('a')).toHaveAttribute(
-      'href',
-      'https://linkedin.com/in/albertina-durante/',
-    );
+    expect(getByText('LinkedIn').closest('a')).toHaveAttribute('href', expect.stringMatching(/^https?:\/\//));
   });
 
   it('nav has correct aria-label', () => {
