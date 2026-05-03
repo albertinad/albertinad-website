@@ -3,6 +3,7 @@
   "compilerOptions": {
     "verbatimModuleSyntax": false,
     "allowImportingTsExtensions": false,
+    "allowSyntheticDefaultImports": true,
     "noEmit": false
   }
 }

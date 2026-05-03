@@ -8,7 +8,8 @@ export const useTheme = () => {
     document.body.className = theme;
   }, [theme]);
 
-  const toggleTheme = () => setTheme((t) => (t === AvailableThemes.LIGHT ? AvailableThemes.DARK : AvailableThemes.LIGHT));
+  const toggleTheme = () =>
+    setTheme((t) => (t === AvailableThemes.LIGHT ? AvailableThemes.DARK : AvailableThemes.LIGHT));
 
   return { theme, toggleTheme, isDark: theme === AvailableThemes.DARK };
 };

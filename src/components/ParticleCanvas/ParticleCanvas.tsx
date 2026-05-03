@@ -6,7 +6,5 @@ export const ParticleCanvas = (config: ParticleConfig) => {
 
   useParticles(canvasRef, config);
 
-  return (
-    <canvas id="particle-canvas" ref={canvasRef} />
-  );
+  return <canvas id="particle-canvas" ref={canvasRef} />;
 };
