@@ -3,6 +3,7 @@ import { cx } from 'styled-system/css';
 import { GithubIcon } from '../icons/GithubIcon';
 import { LinkedinIcon } from '../icons/LinkedinIcon';
 import { headerCss, headerLeftCss, navCss, socialLinkCss, toggleCss } from './styles';
+import { HeaderIconLink } from './HeaderIconLink';
 
 type HeaderProps = {
   isDark: boolean;
@@ -11,28 +12,23 @@ type HeaderProps = {
 
 export const Header = ({ isDark, onToggleTheme }: HeaderProps) => {
   const intl = useIntl();
+
   return (
     <header className={headerCss}>
       <div className={headerLeftCss}>
         <nav className={navCss} aria-label={intl.formatMessage({ id: 'header.nav.ariaLabel' })}>
-          <a
+          <HeaderIconLink
             href="https://github.com/albertinad"
-            target="_blank"
-            rel="noopener noreferrer"
+            icon={GithubIcon}
+            label="GitHub"
             className={socialLinkCss}
-          >
-            <GithubIcon />
-            GitHub
-          </a>
-          <a
+          />
+          <HeaderIconLink
             href="https://linkedin.com/in/albertina-durante/"
-            target="_blank"
-            rel="noopener noreferrer"
+            icon={LinkedinIcon}
+            label="LinkedIn"
             className={socialLinkCss}
-          >
-            <LinkedinIcon />
-            LinkedIn
-          </a>
+          />
         </nav>
         <button
           className={cx(toggleCss, isDark ? 'dark-on' : '')}

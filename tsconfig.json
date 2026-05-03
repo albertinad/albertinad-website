@@ -14,8 +14,9 @@
     "jsx": "react-jsx",
     "paths": {
       "@/*": ["./src/*"],
-      "styled-system/*": ["./styled-system/*"]
+      "styled-system/*": ["./styled-system/*"],
+      "tests/*": ["./tests/*"]
     }
   },
-  "include": ["src", "styled-system"]
+  "include": ["src", "styled-system", "tests"]
 }
