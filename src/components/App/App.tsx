@@ -1,12 +1,12 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 import messages from '@/i18n/en.json';
 import { useTheme } from '@/hooks/useTheme';
 import { ParticleCanvas } from '@/components/ParticleCanvas';
 import { Header } from '@/components/Header';
-import { Hero } from '@/components/Hero';
-import { AboutSection } from '@/components/AboutSection';
-import { ProgressSection } from '@/components/ProgressSection';
 import { Footer } from '@/components/Footer';
+import { HomePage } from '@/pages/Home';
+import { NotFoundPage } from '@/pages/NotFound';
 import { pageCss, mainCss } from './styles';
 
 const PARTICLE_CONFIG = {
@@ -21,18 +21,21 @@ export const App = () => {
 
   return (
     <IntlProvider locale="en" messages={messages}>
-      <>
-        <ParticleCanvas {...PARTICLE_CONFIG} theme={theme} />
-        <div className={pageCss}>
-          <Header isDark={isDark} onToggleTheme={toggleTheme} />
-          <main className={mainCss}>
-            <Hero />
-            <AboutSection />
-            <ProgressSection />
-          </main>
-          <Footer />
-        </div>
-      </>
+      <BrowserRouter>
+        <>
+          <ParticleCanvas {...PARTICLE_CONFIG} theme={theme} />
+          <div className={pageCss}>
+            <Header isDark={isDark} onToggleTheme={toggleTheme} />
+            <main className={mainCss}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </>
+      </BrowserRouter>
     </IntlProvider>
   );
 };

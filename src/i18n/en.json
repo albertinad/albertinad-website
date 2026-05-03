@@ -8,5 +8,7 @@
   "header.nav.ariaLabel": "Social links",
   "header.theme.switchToDark": "Switch to dark mode",
   "header.theme.switchToLight": "Switch to light mode",
-  "progress.label": "something is being built"
+  "progress.label": "something is being built",
+  "notfound.message": "This page doesn't exist.",
+  "notfound.link": "Go back home"
 }

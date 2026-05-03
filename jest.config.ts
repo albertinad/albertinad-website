@@ -8,6 +8,7 @@ const { compilerOptions } = JSON.parse(tsconfigContent);
 
 const config: JestConfigWithTsJest = {
   preset: 'ts-jest/presets/default-esm',
+  setupFiles: ['<rootDir>/jest.polyfills.ts'],
   testEnvironment: 'jest-environment-jsdom',
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'mjs', 'json'],
