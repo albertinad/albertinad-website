@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
+import { HelmetProvider } from 'react-helmet-async';
 import messages from '@/i18n/en.json';
 import { useTheme } from '@/hooks/useTheme';
 import { ParticleCanvas } from '@/components/ParticleCanvas';
@@ -20,22 +21,24 @@ export const App = () => {
   const { theme, toggleTheme, isDark } = useTheme();
 
   return (
-    <IntlProvider locale="en" messages={messages}>
-      <BrowserRouter>
-        <>
-          <ParticleCanvas {...PARTICLE_CONFIG} theme={theme} />
-          <div className={pageCss}>
-            <Header isDark={isDark} onToggleTheme={toggleTheme} />
-            <main className={mainCss}>
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        </>
-      </BrowserRouter>
-    </IntlProvider>
+    <HelmetProvider>
+      <IntlProvider locale="en" messages={messages}>
+        <BrowserRouter>
+          <>
+            <ParticleCanvas {...PARTICLE_CONFIG} theme={theme} />
+            <div className={pageCss}>
+              <Header isDark={isDark} onToggleTheme={toggleTheme} />
+              <main className={mainCss}>
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
+          </>
+        </BrowserRouter>
+      </IntlProvider>
+    </HelmetProvider>
   );
 };

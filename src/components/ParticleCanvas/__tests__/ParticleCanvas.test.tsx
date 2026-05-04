@@ -41,6 +41,19 @@ describe('ParticleCanvas', () => {
     expect(container.querySelector('#particle-canvas')).toBeInTheDocument();
   });
 
+  it('renders canvas with aria-hidden', () => {
+    const { container } = render(
+      <ParticleCanvas
+        accentColor="#22c55e"
+        density={70}
+        speed={0.35}
+        connDist={130}
+        theme="light"
+      />,
+    );
+    expect(container.querySelector('canvas')).toHaveAttribute('aria-hidden', 'true');
+  });
+
   it('renders a single canvas element', () => {
     const { container } = render(
       <ParticleCanvas

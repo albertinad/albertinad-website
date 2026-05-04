@@ -17,6 +17,7 @@ const config: JestConfigWithTsJest = {
       ? pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' })
       : {}),
     '\\.css$': '<rootDir>/src/__mocks__/fileMock.cjs',
+    '^react-helmet-async$': '<rootDir>/src/__mocks__/react-helmet-async.tsx',
   },
   moduleDirectories: ['node_modules', '<rootDir>'],
   modulePathIgnorePatterns: ['<rootDir>/dist/'],

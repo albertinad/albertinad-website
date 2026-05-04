@@ -1,0 +1,13 @@
+{
+  "name": "Albertina Durante",
+  "short_name": "albertinad",
+  "description": "Staff Software Engineer",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#fafaf7",
+  "background_color": "#fafaf7",
+  "icons": [
+    { "src": "/favicon-32x32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
