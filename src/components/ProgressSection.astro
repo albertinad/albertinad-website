@@ -1,0 +1,64 @@
+---
+import { useTranslations } from '@/i18n/utils';
+
+const translate = useTranslations(Astro.currentLocale);
+---
+
+<section class="progress">
+  <div class="wrap">
+    <div class="dots">
+      <div class="dot" style="animation-delay: 0s"></div>
+      <div class="dot" style="animation-delay: 0.35s"></div>
+      <div class="dot" style="animation-delay: 0.7s"></div>
+      <div class="ring"></div>
+    </div>
+    <span class="label">{translate('progress.label')}</span>
+  </div>
+</section>
+
+<style>
+  .progress {
+    opacity: 0;
+    animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+  }
+
+  .wrap {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .dots {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0;
+    animation: dotBreathe 2.8s ease-in-out infinite;
+  }
+
+  .ring {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    opacity: 0;
+    animation: dotBreathe 2.8s ease-in-out infinite;
+    animation-delay: 1.05s;
+  }
+
+  .label {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+</style>

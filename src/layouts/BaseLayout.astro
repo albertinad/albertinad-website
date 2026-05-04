@@ -1,3 +1,19 @@
+---
+import '@/index.css';
+import 'styled-system/styles.css';
+import { AvailableThemes } from '@/typings';
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const {
+  title = 'Albertina Durante — Staff Software Engineer',
+  description = 'Albertina Durante is a Staff Software Engineer with an MSc in Information Systems Engineering. Expertise in backend, frontend, and full-stack development across big tech and startups, specializing in reliable, scalable, and performant systems.',
+} = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,11 +21,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary SEO -->
-    <title>Albertina Durante — Staff Software Engineer</title>
-    <meta
-      name="description"
-      content="Albertina Durante is a Staff Software Engineer with an MSc in Information Systems Engineering. Expertise in backend, frontend, and full-stack development across big tech and startups, specializing in reliable, scalable, and performant systems."
-    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <meta name="author" content="Albertina Durante" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://albertinad.com/" />
@@ -17,11 +30,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://albertinad.com/" />
-    <meta property="og:title" content="Albertina Durante — Staff Software Engineer" />
-    <meta
-      property="og:description"
-      content="Staff Software Engineer with an MSc in Information Systems Engineering and a decade of experience across backend, frontend, and full-stack roles."
-    />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Albertina Durante" />
 
@@ -53,8 +63,7 @@
       rel="stylesheet"
     />
   </head>
-  <body class="light">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class={AvailableThemes.LIGHT}>
+    <slot />
   </body>
 </html>

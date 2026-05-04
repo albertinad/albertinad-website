@@ -1,40 +1,33 @@
-import { jest } from '@jest/globals';
 import { render, fireEvent } from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
-import messages from '@/i18n/en.json';
 import { Header } from '../Header';
 
-const renderHeader = (isDark: boolean, onToggleTheme = jest.fn()) =>
-  render(
-    <IntlProvider locale="en" messages={messages}>
-      <Header isDark={isDark} onToggleTheme={onToggleTheme} />
-    </IntlProvider>,
-  );
+const renderHeader = () => render(<Header locale="en" />);
 
 describe('Header', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    localStorage.clear();
   });
 
   it('toggle button shows "Switch to dark mode" when light theme is active', () => {
-    const { getByRole } = renderHeader(false);
+    const { getByRole } = renderHeader();
     expect(getByRole('button')).toHaveAttribute('aria-label', 'Switch to dark mode');
   });
 
-  it('toggle button shows "Switch to light mode" when dark theme is active', () => {
-    const { getByRole } = renderHeader(true);
+  it('toggle button shows "Switch to light mode" after toggling to dark', () => {
+    const { getByRole } = renderHeader();
+    fireEvent.click(getByRole('button'));
     expect(getByRole('button')).toHaveAttribute('aria-label', 'Switch to light mode');
   });
 
-  it('calls onToggleTheme when toggle button is clicked', () => {
-    const onToggleTheme = jest.fn();
-    const { getByRole } = renderHeader(false, onToggleTheme);
+  it('toggles back to dark mode label after two clicks', () => {
+    const { getByRole } = renderHeader();
     fireEvent.click(getByRole('button'));
-    expect(onToggleTheme).toHaveBeenCalledTimes(1);
+    fireEvent.click(getByRole('button'));
+    expect(getByRole('button')).toHaveAttribute('aria-label', 'Switch to dark mode');
   });
 
   it('renders the GitHub link', () => {
-    const { getByText } = renderHeader(false);
+    const { getByText } = renderHeader();
     expect(getByText('GitHub').closest('a')).toHaveAttribute(
       'href',
       expect.stringMatching(/^https?:\/\//),
@@ -42,7 +35,7 @@ describe('Header', () => {
   });
 
   it('renders the LinkedIn link', () => {
-    const { getByText } = renderHeader(false);
+    const { getByText } = renderHeader();
     expect(getByText('LinkedIn').closest('a')).toHaveAttribute(
       'href',
       expect.stringMatching(/^https?:\/\//),
@@ -50,7 +43,7 @@ describe('Header', () => {
   });
 
   it('nav has correct aria-label', () => {
-    const { getByRole } = renderHeader(false);
+    const { getByRole } = renderHeader();
     expect(getByRole('navigation')).toHaveAttribute('aria-label', 'Social links');
   });
 });

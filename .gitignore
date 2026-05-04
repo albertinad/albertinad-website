@@ -137,10 +137,16 @@ dist
 !.yarn/sdks
 !.yarn/versions
 
+# Astro cache
+.astro/
+
 # Vite files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Wrangler
+.wrangler/
 
 # Panda CSS generated output
 styled-system/

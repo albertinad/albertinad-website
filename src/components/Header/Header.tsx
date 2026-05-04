@@ -1,22 +1,38 @@
-import { useIntl } from 'react-intl';
+import { useState, useEffect } from 'react';
 import { cx } from 'styled-system/css';
+import { AvailableThemes } from '@/typings';
+import { useTranslations } from '@/i18n/utils';
 import { GithubIcon } from '../icons/GithubIcon';
 import { LinkedinIcon } from '../icons/LinkedinIcon';
 import { headerCss, headerLeftCss, navCss, socialLinkCss, toggleCss } from './styles';
 import { HeaderIconLink } from './HeaderIconLink';
 
 type HeaderProps = {
-  isDark: boolean;
-  onToggleTheme: () => void;
+  locale: string;
 };
 
-export const Header = ({ isDark, onToggleTheme }: HeaderProps) => {
-  const intl = useIntl();
+export const Header = ({ locale }: HeaderProps) => {
+  const translate = useTranslations(locale);
+
+  const [isDark, setIsDark] = useState(
+    () => typeof window !== 'undefined' && localStorage.getItem('theme') === AvailableThemes.DARK,
+  );
+
+  useEffect(() => {
+    document.body.className = isDark ? AvailableThemes.DARK : AvailableThemes.LIGHT;
+  }, [isDark]);
+
+  const onToggleTheme = () => {
+    const newTheme = isDark ? AvailableThemes.LIGHT : AvailableThemes.DARK;
+    setIsDark(!isDark);
+    document.body.className = newTheme;
+    localStorage.setItem('theme', newTheme);
+  };
 
   return (
     <header className={headerCss}>
       <div className={headerLeftCss}>
-        <nav className={navCss} aria-label={intl.formatMessage({ id: 'header.nav.ariaLabel' })}>
+        <nav className={navCss} aria-label={translate('header.nav.ariaLabel')}>
           <HeaderIconLink
             href="https://github.com/albertinad"
             icon={GithubIcon}
@@ -35,8 +51,8 @@ export const Header = ({ isDark, onToggleTheme }: HeaderProps) => {
           onClick={onToggleTheme}
           aria-label={
             isDark
-              ? intl.formatMessage({ id: 'header.theme.switchToLight' })
-              : intl.formatMessage({ id: 'header.theme.switchToDark' })
+              ? translate('header.theme.switchToLight')
+              : translate('header.theme.switchToDark')
           }
         />
       </div>

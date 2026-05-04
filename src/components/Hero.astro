@@ -1,0 +1,32 @@
+---
+import { useTranslations } from '@/i18n/utils';
+
+const translate = useTranslations(Astro.currentLocale);
+---
+
+<div class="hero">
+  <h1 class="name">
+    <strong>{translate('hero.name.first')}</strong>{' '}
+    {translate('hero.name.last')}
+  </h1>
+</div>
+
+<style>
+  .hero {
+    opacity: 0;
+    animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+  }
+
+  .name {
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--fg);
+    margin: 0;
+  }
+
+  .name strong {
+    font-weight: 400;
+  }
+</style>
