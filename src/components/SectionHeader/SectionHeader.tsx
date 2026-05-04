@@ -7,7 +7,7 @@ type SectionHeaderProps = {
 export const SectionHeader = ({ title }: SectionHeaderProps) => {
   return (
     <div className={headerCss}>
-      <span className={titleCss}>{title}</span>
+      <h2 className={titleCss}>{title}</h2>
     </div>
   );
 };

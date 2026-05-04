@@ -14,4 +14,5 @@ export const titleCss = css({
   textTransform: 'uppercase',
   color: 'var(--muted)',
   whiteSpace: 'nowrap',
+  margin: 0,
 });

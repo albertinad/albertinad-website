@@ -3,7 +3,7 @@ import { sectionCss, wrapCss, dotsCss, dotCss, ringCss, labelCss } from './style
 
 export const ProgressSection = () => {
   return (
-    <div className={sectionCss}>
+    <section className={sectionCss}>
       <div className={wrapCss}>
         <div className={dotsCss}>
           <div className={dotCss} />
@@ -15,6 +15,6 @@ export const ProgressSection = () => {
           <FormattedMessage id="progress.label" />
         </span>
       </div>
-    </div>
+    </section>
   );
 };

@@ -6,6 +6,6 @@ describe('ProgressSection', () => {
     const { container, getByText } = renderWithIntl(<ProgressSection />);
 
     expect(getByText('something is being built')).toBeInTheDocument();
-    expect(container.firstChild).toBeInTheDocument();
+    expect(container.querySelector('section')).toBeInTheDocument();
   });
 });
