@@ -1,5 +1,6 @@
 import { hexToRgb } from '@/utils/colors';
 import { useEffect, type RefObject } from 'react';
+import { AvailableThemes, type Theme } from '@/typings';
 
 type Particle = {
   x: number;
@@ -15,12 +16,12 @@ export type ParticleConfig = {
   density: number;
   speed: number;
   connDist: number;
-  theme: string;
+  theme?: Theme;
 };
 
 export const useParticles = (
   canvasRef: RefObject<HTMLCanvasElement | null>,
-  { accentColor, density, speed, connDist, theme }: ParticleConfig,
+  { accentColor, density, speed, connDist, theme = AvailableThemes.LIGHT }: ParticleConfig,
 ) => {
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -35,7 +36,7 @@ export const useParticles = (
     let animId: number;
 
     const [r, g, b] = hexToRgb(accentColor);
-    const isDark = theme === 'dark';
+    const isDark = theme === AvailableThemes.DARK;
 
     const init = () => {
       const count = Math.floor((W * H) / ((14000 / density) * 100));

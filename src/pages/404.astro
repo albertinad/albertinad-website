@@ -1,0 +1,47 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { useTranslations } from '@/i18n/utils';
+
+const translate = useTranslations(Astro.currentLocale);
+---
+
+<BaseLayout>
+  <div class="not-found">
+    <h1>404</h1>
+    <p>{translate('notfound.message')}</p>
+    <a href="/">{translate('notfound.link')}</a>
+  </div>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin: 0 0 1rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin: 0 0 2rem;
+    opacity: 0.8;
+  }
+
+  a {
+    color: #22c55e;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>

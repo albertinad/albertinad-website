@@ -1,0 +1,45 @@
+---
+import { useTranslations } from '@/i18n/utils';
+
+const translate = useTranslations(Astro.currentLocale);
+---
+
+<footer class="footer">
+  <div class="inner">
+    <span class="copy">{translate('footer.copyright')}</span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    border-top: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards;
+  }
+
+  @media (min-width: 640px) {
+    .footer {
+      padding-top: 28px;
+      padding-bottom: 28px;
+      padding-left: 64px;
+      padding-right: 64px;
+    }
+  }
+
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .copy {
+    font-size: 0.74rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+</style>

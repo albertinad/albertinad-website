@@ -4,9 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "panda cssgen --watch & vite",
-    "build": "npm run prepare && tsc -b && vite build",
-    "preview": "vite preview",
+    "dev": "panda cssgen --watch & astro dev",
+    "build": "npm run prepare && astro build",
+    "preview": "astro preview",
     "prepare": "panda codegen --silent && panda cssgen",
     "lint": "eslint src && npm run format:check",
     "format": "prettier --write .",
@@ -15,15 +15,15 @@
     "test:coverage": "NODE_OPTIONS='--experimental-vm-modules --experimental-strip-types' jest --coverage --passWithNoTests",
     "deploy": "npm run build && wrangler deploy",
     "cf:preview": "npm run build && wrangler dev",
-    "clean:build": "rm -rf dist coverage",
+    "clean:build": "rm -rf dist coverage .astro",
     "clean": "npm run clean:build && rm -rf node_modules"
   },
   "dependencies": {
+    "@astrojs/react": "^5.0.4",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.2.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-helmet-async": "^3.0.0",
-    "react-intl": "^10.1.4",
-    "react-router-dom": "^7.14.2"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -33,7 +33,6 @@
     "@types/jest": "^30.0.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
-    "@vitejs/plugin-react": "^4.4.1",
     "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-hooks": "^7.1.1",
@@ -41,10 +40,10 @@
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0",
     "prettier": "^3.8.3",
+    "prettier-plugin-astro": "^0.14.1",
     "ts-jest": "^29.4.9",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.59.1",
-    "vite": "^6.3.4",
     "wrangler": "^4.87.0"
   }
 }

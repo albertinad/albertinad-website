@@ -2,7 +2,7 @@ import { defineConfig } from '@pandacss/dev';
 
 export default defineConfig({
   preflight: false,
-  include: ['./src/**/*.{ts,tsx}'],
+  include: ['./src/**/*.{ts,tsx,astro}'],
   exclude: [],
   outdir: 'styled-system',
 
