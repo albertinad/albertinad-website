@@ -1,7 +1,15 @@
 ---
 import { useTranslations } from '@/i18n/utils';
+import { RotatingLabel } from '@/components/ProgressSection';
 
 const translate = useTranslations(Astro.currentLocale);
+const messages = [
+  translate('progress.label.0'),
+  translate('progress.label.1'),
+  translate('progress.label.2'),
+  translate('progress.label.3'),
+  translate('progress.label.4'),
+];
 ---
 
 <section class="progress">
@@ -12,7 +20,7 @@ const translate = useTranslations(Astro.currentLocale);
       <div class="dot" style="animation-delay: 0.7s"></div>
       <div class="ring"></div>
     </div>
-    <span class="label">{translate('progress.label')}</span>
+    <RotatingLabel messages={messages} client:load />
   </div>
 </section>
 
@@ -53,12 +61,17 @@ const translate = useTranslations(Astro.currentLocale);
     animation-delay: 1.05s;
   }
 
-  .label {
+  :global(.progress-label) {
     font-size: 0.72rem;
     font-weight: 400;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--muted);
     white-space: nowrap;
+    transition: opacity 0.3s ease;
+  }
+
+  :global(.progress-label.fading) {
+    opacity: 0;
   }
 </style>
