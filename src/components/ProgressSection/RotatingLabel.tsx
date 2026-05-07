@@ -22,9 +22,5 @@ export const RotatingLabel = ({ messages }: Props) => {
     return () => clearInterval(id);
   }, [messages.length]);
 
-  return (
-    <span className={`progress-label${fading ? ' fading' : ''}`}>
-      {messages[index]}
-    </span>
-  );
+  return <span className={`progress-label${fading ? ' fading' : ''}`}>{messages[index]}</span>;
 };

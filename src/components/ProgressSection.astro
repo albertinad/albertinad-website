@@ -1,15 +1,13 @@
 ---
-import { useTranslations } from '@/i18n/utils';
+import en from '@/i18n/en.json';
+import { useTranslations, type MessageKey } from '@/i18n/utils';
 import { RotatingLabel } from '@/components/ProgressSection';
 
 const translate = useTranslations(Astro.currentLocale);
-const messages = [
-  translate('progress.label.0'),
-  translate('progress.label.1'),
-  translate('progress.label.2'),
-  translate('progress.label.3'),
-  translate('progress.label.4'),
-];
+const messages = (Object.keys(en) as MessageKey[])
+  .filter((k) => k.startsWith('progress.label.'))
+  .sort()
+  .map((k) => translate(k));
 ---
 
 <section class="progress">
